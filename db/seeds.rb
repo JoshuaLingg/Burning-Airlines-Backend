@@ -25,9 +25,8 @@ plane1.flights << flight1
 plane2.flights << flight2
 puts "Airplanes and flights"
 
-# user1.reservations << reservation1
-# user2.reservations << reservation2
-# flight1.reservations << user1
-# flight2.reservations << user2
-
+user1.reservations << reservation1
+user2.reservations << reservation2
+flight1.reservations << reservation1
+flight2.reservations << reservation2
 puts "reservations done"
