@@ -1,8 +1,3 @@
-# Gymplan.destroy_all
-# g1 = Gymplan.create :day => 1, :focus => 'Chest', :image => 'https://i.ytimg.com/vi/jdunwLczz8o/maxresdefault.jpg'
-# g2 = Gymplan.create :day => 2, :focus => 'Back', :image => 'https://d3h9ln6psucegz.cloudfront.net/wp-content/uploads/2021/10/Back-Workout.jpg'
-# g3 = Gymplan.create :day => 3, :focus => 'Shoulders', :image => 'https://builtwithscience.com/wp-content/uploads/2019/07/dumbbell-shoulder-exercises-thumbnail-1.png'
-# puts "#{ Gymplan.count } gymplans"
 
 User.destroy_all
 user1 = User.create :username => 'bob', :admin => true
@@ -10,4 +5,29 @@ user2 = User.create :username => 'fred', :admin => false
 puts "#{User.count} Users"
 
 Airplane.destroy_all
-plane1 = Airplane.create :name => 747, :row => 12, :column => "D"
+plane1 = Airplane.create :name => 747, :row => 12, :column => 4
+plane2 = Airplane.create :name => 102, :row => 24, :column => 1
+puts "#{Airplane.count} Airplane"
+
+Flight.destroy_all
+flight1 = Flight.create :date => "2/2/2022", :flight_number => 1, :origin => "Melbourne", :destination => "Sydney"
+flight2 = Flight.create :date => "13/2/2022", :flight_number => 2, :origin => "Sydney", :destination => "Western Australia"
+puts "#{Flight.count} Flights"
+
+Reservation.destroy_all
+reservation1 = Reservation.create :seat => "5D"
+reservation2 = Reservation.create :seat => "21A"
+puts "#{Reservation.count} Reservations"
+
+# Associations ######################################################
+
+plane1.flights << flight1
+plane2.flights << flight2
+puts "Airplanes and flights"
+
+# user1.reservations << reservation1
+# user2.reservations << reservation2
+# flight1.reservations << user1
+# flight2.reservations << user2
+
+puts "reservations done"
